@@ -3,49 +3,50 @@
 \section{Introductie} % The \section*{} command stops section numbering
 \label{sec:introductie}
 
-Hier introduceer je werk. Je hoeft hier nog niet te technisch te gaan.
+De job van een programmeur is complex met verschillende verantwoordelijkheden. Dit gaat van het effectieve schrijven van nieuwe code tot het testen van deze code, het opsporen van fouten, het beheren van verschillende versies... Om deze lasten te verminderen zijn er over de jaren heen verschillende geïntegreerde ontwikkelingsomgeving (IDEs) op de markt gekomen, met het doel de productiviteit van de programmeur te verhogen. 
 
-Je beschrijft zeker:
+IDEs zijn ver gekomen sinds het idee ten eerste werd voorgesteld in de 1980 \autocite{Kline2005}. De eerste versies waren onhandig in gebruik en vereisten meerdere uren professionele training om effectief gebruikt te kunnen worden. Deze programma’s hadden wel het potentieel om programmeurs productiever te laten worden, maar door de grote leercurve verkozen vele de gewone tekst-editor. De kost van de eerste software was ook een grote barrière, deze kon makkelijk oplopen tot \$20,000 per ontwikkelaar. Hedendaags gebruikt bijna iedere programmeur een IDE en deze zijn vaak gratis en open source. 
 
-\begin{itemize}
-  \item de probleemstelling en context
-  \item de motivatie en relevantie voor het onderzoek
-  \item de doelstelling en onderzoeksvraag/-vragen
-\end{itemize}
+In dit onderzoek wordt getracht te achterhalen hoe het met de markt van gratis IDEs gesteld is, op vlakken van hardware vereisten, leercurve, functionaliteit, configuratie en extensies. Daarnaast word onderzocht in welke use cases beginnende en ervaren programmeurs de betalende software beter ervaren.
 
 %---------- Stand van zaken ---------------------------------------------------
 
 \section{State-of-the-art}
 \label{sec:state-of-the-art}
 
-Hier beschrijf je de \emph{state-of-the-art} rondom je gekozen onderzoeksdomein. Dit kan bijvoorbeeld een literatuurstudie zijn. Je mag de titel van deze sectie ook aanpassen (literatuurstudie, stand van zaken, enz.). Zijn er al gelijkaardige onderzoeken gevoerd? Wat concluderen ze? Wat is het verschil met jouw onderzoek? Wat is de relevantie met jouw onderzoek?
+De hoofdfunctie van de geïntegreerde ontwikkelingsomgeving is de broncode-editor, deze is meestal voorzien van syntax markering, auto aanvulling en code controle. Daarnaast heeft de moderne IDE een ingebouwde debugger en versie controlesysteem. Momenteel is de populairste IDE Visual Studio Code \autocite{StackOverflow2021}, deze gratis software is vooral populair door zijn kleine leercurve en ecosysteem van extensies. Een andere populaire gratis IDE is Eclipse, deze is gespecialiseerd in Java, maar heeft vele extensie voor andere programmeertalen. Visual Studio 2019 is een betalende IDE, met een gratis versie, en heeft ingebouwde ondersteuning voor C, C++, C\#, F\#, TypeScript, XML en HTML. Een andere populaire optie zijn de IDEs van JetBrains, dit bedrijf biedt meerder betalende IDE’s aan met bijvoorbeeld IntelliJ voor Java-applicaties en Rider voor C++ applicaties.
 
-Verwijs bij elke introductie van een term of bewering over het domein naar de vakliteratuur, bijvoorbeeld~\autocite{Doll1954}! Denk zeker goed na welke werken je refereert en waarom.
+In het verleden zijn er al gebruiksanalyses van Eclipse en Visual Studio geweest \autocite{Murphy2006, Amann2016}. Hier werd er passief opgenomen welke functionaliteiten van de IDE de programmeurs meest gebruikten, maar er is nog geen onderzoek gebeurd naar wat programmeurs zelf waarderen in IDEs. 
+
+Er is geen bestaand onderzoek over de hardware requirements van IDEs en hoe de verschillende programma’s hier zich van elkaar onderscheiden. Het is wel algemeen aanvaard dat voor sommige projecten de hardware requirements zeer hoog worden. Over dit onderwerp is er al onderzoek gebeurd voor het migreren van desktop gebaseerde IDEs naar de cloud \autocite{Devadiga2021}.
 
 % Voor literatuurverwijzingen zijn er twee belangrijke commando's:
-% \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
-%   geen onderdeel is van de zin.
-% \textcite{KEY} => Auteur (jaartal)  Gebruik dit als de auteursnaam wel een
-%   functie heeft in de zin (bv. ``Uit onderzoek door Doll & Hill (1954) bleek
-%   ...'')
-
-Je mag gerust gebruik maken van subsecties in dit onderdeel.
+% \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur geen onderdeel is van de zin.
+% \textcite{KEY} => Auteur (jaartal)  Gebruik dit als de auteursnaam wel een functie heeft in de zin (bv. ``Uit onderzoek door Doll & Hill (1954) bleek  ...'')
 
 %---------- Methodologie ------------------------------------------------------
 \section{Methodologie}
 \label{sec:methodologie}
 
-Hier beschrijf je hoe je van plan bent het onderzoek te voeren. Welke onderzoekstechniek ga je toepassen om elk van je onderzoeksvragen te beantwoorden? Gebruik je hiervoor experimenten, vragenlijsten, simulaties? Je beschrijft ook al welke tools je denkt hiervoor te gebruiken of te ontwikkelen.
+Dit onderzoek zal bestaan uit zowel een vragenlijst als technische experimenten. De vragenlijst die zal opgesteld worden zal ingevuld worden door zowel beginnende als ervaren programmeurs. Deze vragenlijst zal nagaan welke eigenschappen elke programmeur belangrijk acht, en welke functionaliteiten men dagelijks gebruikt. Daarnaast zal er ook gevraagd worden met welke IDEs men ervaring heeft en welke men verkiest. Ten laatste zal er nagegaan worden welke problemen men ondervindt in het dagelijkse gebruik van IDEs en wat men mist van functionaliteit.
+
+De technische experimenten zullen bestaan in het meten van opstart en compileer -tijden in zowel run als debug configuratie, en het systeemverbruik bij normaal gebruik en op de achtergrond. Hiervoor zullen 3 projecten gebruikt worden: een leeg project met geen code, een project met een applicatie van gemiddelde grote, en een zware applicatie met meerdere dependencies. De IDEs die opgenomen zullen worden in het onderzoek zijn: Visual Studio Code, Eclipse, Visual Studio 2019 Community, Visual Studio 2019 Enterprise met en zonder dotUltimate extensies, Rider en IntelliJ.
+
+
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwachte resultaten}
 \label{sec:verwachte_resultaten}
 
-Hier beschrijf je welke resultaten je verwacht. Als je metingen en simulaties uitvoert, kan je hier al mock-ups maken van de grafieken samen met de verwachte conclusies. Benoem zeker al je assen en de stukken van de grafiek die je gaat gebruiken. Dit zorgt ervoor dat je concreet weet hoe je je data gaat moeten structureren.
+De auteur verwacht dat beginnende gebruikers vooral de auto aanvulling en code controle belangrijk zullen vinden. De auteur verwacht ook dat de ervaren gebruikers dezelfde functionaliteiten belangrijk zullen vinden met daarnaast de geavanceerdere features die voornamelijk helpen bij het beheren van een grote code base die vooral voorkomen in de gespecialiseerde betalende IDEs.
+
+Voor de technische experimenten verwacht de auteur dat Visual Studio Code het beste zal scoren op opstart en compileer -tijden maar dat het resource verbruik bij normaal gebruik en op de achtergrond het grootste zal zijn. De andere IDEs zullen meer tijd in beslag nemen om op te starten maar de compileer tijden zullen gelijkaardig zijn.
+
+
 
 %---------- Verwachte conclusies ----------------------------------------------
 \section{Verwachte conclusies}
 \label{sec:verwachte_conclusies}
 
-Hier beschrijf je wat je verwacht uit je onderzoek, met de motivatie waarom. Het is \textbf{niet} erg indien uit je onderzoek andere resultaten en conclusies vloeien dan dat je hier beschrijft: het is dan juist interessant om te onderzoeken waarom jouw hypothesen niet overeenkomen met de resultaten.
+De verwachte resultaten leiden er toe dat Visual Studio Code de aanbevolen IDE is voor de gemiddelde programmeur, zoals de huidige markt weerspiegeld. Voor sommige gebruikers kan het wel voordelig zijn om gespecialiseerde IDEs aan te schaffen, maar enkel als hier een specifieke nood toe is.
 

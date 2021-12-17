@@ -58,11 +58,14 @@
   url          = {https://ssrn.com/abstract=3867647},
 }
 
-@WWW{StackOverflow2021,
+@WWW{2021,
   author = {StackOverflow},
   date   = {2021},
   title  = {StackOverflow Developer Survey},
   url    = {https://insights.stackoverflow.com/survey/2021},
+}
+
+@MvCollection{,
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}
