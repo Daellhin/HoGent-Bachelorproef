@@ -9,16 +9,25 @@ IDEs zijn ver gekomen sinds het idee ten eerste werd voorgesteld in de 1980 \aut
 
 In dit onderzoek wordt getracht te achterhalen hoe het met de markt van gratis IDEs gesteld is, op vlakken van hardware vereisten, leercurve, functionaliteit, configuratie en extensies. Daarnaast word onderzocht in welke use cases beginnende en ervaren programmeurs de betalende software beter ervaren.
 
+In deze thesis zullen volgende onderzoeksvragen uitgewerkt worden:
+
+\begin{itemize}
+    \item Zijn betalende IDEs functioneel beter(meer features en gebruiksvriendelijker) dan de gratis opties en verhogen deze dus de productiviteit van de programmeur?
+    \item Wat zijn de systeemvereisten en prestaties van moderne IDEs, en hoe verschillen deze onderling?
+\end{itemize}
+
+
 %---------- Stand van zaken ---------------------------------------------------
 
 \section{State-of-the-art}
 \label{sec:state-of-the-art}
 
-De hoofdfunctie van de geïntegreerde ontwikkelingsomgeving is de broncode-editor, deze is meestal voorzien van syntax markering, auto aanvulling en code controle. Daarnaast heeft de moderne IDE een ingebouwde debugger en versie controlesysteem. Momenteel is de populairste IDE Visual Studio Code \autocite{StackOverflow2021}, deze gratis software is vooral populair door zijn kleine leercurve en ecosysteem van extensies. Een andere populaire gratis IDE is Eclipse, deze is gespecialiseerd in Java, maar heeft vele extensie voor andere programmeertalen. Visual Studio 2019 is een betalende IDE, met een gratis versie, en heeft ingebouwde ondersteuning voor C, C++, C\#, F\#, TypeScript, XML en HTML. Een andere populaire optie zijn de IDEs van JetBrains, dit bedrijf biedt meerder betalende IDEs aan met bijvoorbeeld IntelliJ voor Java-applicaties en Rider voor C++ applicaties.
+De hoofdfunctie van de geïntegreerde ontwikkelingsomgeving is de broncode-editor, deze is meestal voorzien van syntax markering, auto aanvulling en code controle. Daarnaast heeft de moderne IDE een ingebouwde debugger en versie controlesysteem. Momenteel is de populairste IDE Visual Studio Code \autocite{StackOverflow2021}, deze gratis software is vooral populair door zijn kleine leercurve en ecosysteem van extensies. Een andere populaire gratis IDE is Eclipse, deze is gespecialiseerd in Java, maar heeft vele extensie voor andere programmeertalen. Visual Studio 2019 is een betalende IDE, met een gratis versie, en heeft ingebouwde ondersteuning voor C, C++, C\#, F\#, TypeScript, XML en HTML. Een andere populaire optie zijn de IDEs van JetBrains, dit bedrijf biedt meerder betalende IDEs aan met bijvoorbeeld IntelliJ voor Java-applicaties en de dotUltimate extensie voor Visual studio 2019.
 
 In het verleden zijn er al gebruiksanalyses van Eclipse en Visual Studio geweest \autocite{Murphy2006, Amann2016}. Hier werd er passief opgenomen welke functionaliteiten van de IDE de programmeurs meest gebruikten, maar er is nog geen onderzoek gebeurd naar wat programmeurs zelf waarderen in IDEs. 
 
 Er is geen bestaand onderzoek over de hardware requirements van IDEs en hoe de verschillende programma’s hier zich van elkaar onderscheiden. Het is wel algemeen aanvaard dat voor sommige projecten de hardware requirements zeer hoog worden. Over dit onderwerp is er al onderzoek gebeurd voor het migreren van desktop gebaseerde IDEs naar de cloud \autocite{Devadiga2021}.
+
 
 % Voor literatuurverwijzingen zijn er twee belangrijke commando's:
 % \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur geen onderdeel is van de zin.
@@ -30,8 +39,8 @@ Er is geen bestaand onderzoek over de hardware requirements van IDEs en hoe de v
 
 Dit onderzoek zal bestaan uit zowel een vragenlijst als technische experimenten. De vragenlijst die zal opgesteld worden zal ingevuld worden door zowel beginnende als ervaren programmeurs. Deze vragenlijst zal nagaan welke eigenschappen elke programmeur belangrijk acht, en welke functionaliteiten men dagelijks gebruikt. Daarnaast zal er ook gevraagd worden met welke IDEs men ervaring heeft en welke men verkiest. Ten laatste zal er nagegaan worden welke problemen men ondervindt in het dagelijkse gebruik van IDEs en wat men mist van functionaliteit.
 
-De technische experimenten zullen bestaan in het meten van opstart en compileer -tijden in zowel run als debug configuratie, en het systeemverbruik bij normaal gebruik en op de achtergrond. Hiervoor zullen 3 projecten gebruikt worden: een leeg project met geen code, een project met een applicatie van gemiddelde grote, en een zware applicatie met meerdere dependencies. De IDEs die opgenomen zullen worden in het onderzoek zijn: Visual Studio Code, Eclipse, Visual Studio 2019 Community, Visual Studio 2019 Enterprise met en zonder dotUltimate extensies, Rider en IntelliJ.
-
+De technische experimenten zullen bestaan in het meten van opstart en compileer -tijden in zowel run als debug configuratie, en het systeemverbruik bij normaal gebruik en op de achtergrond. Hiervoor zullen 3 projecten gebruikt worden: een leeg project met geen code, een project met een applicatie van gemiddelde grote, en een zware applicatie met meerdere dependencies. 
+De IDEs die opgenomen zullen worden in het onderzoek zijn de 4 meest populaire IDEs \autocite{StackOverflow2021} samen met hun betalende/gratis tegenhangers. Dit komt dus neer op Visual Studio Code, Visual Studio 2019 Community, Visual Studio 2019 Enterprise met en zonder dotUltimate extensies, Notepad++, IntelliJ en Eclipse. 
 
 
 %---------- Verwachte resultaten ----------------------------------------------
@@ -41,7 +50,6 @@ De technische experimenten zullen bestaan in het meten van opstart en compileer 
 De auteur verwacht dat beginnende gebruikers vooral de auto aanvulling en code controle belangrijk zullen vinden. De auteur verwacht ook dat de ervaren gebruikers dezelfde functionaliteiten belangrijk zullen vinden met daarnaast de geavanceerdere features die voornamelijk helpen bij het beheren van een grote code base die vooral voorkomen in de gespecialiseerde betalende IDEs.
 
 Voor de technische experimenten verwacht de auteur dat Visual Studio Code het beste zal scoren op opstart en compileer -tijden maar dat het resource verbruik bij normaal gebruik en op de achtergrond het grootste zal zijn. De andere IDEs zullen meer tijd in beslag nemen om op te starten maar de compileer tijden zullen gelijkaardig zijn.
-
 
 
 %---------- Verwachte conclusies ----------------------------------------------

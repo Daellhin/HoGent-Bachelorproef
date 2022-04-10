@@ -47,25 +47,4 @@
   keywords     = {Software development environment, Integrated development environment (IDE), CASE tools, Usability, User interfaces, User-centered design},
 }
 
-@WWW{JAXenter2018,
-  author = {JAXenter},
-  date   = {2018},
-  title  = {Know your history – IDEs are a developer’s best friend},
-  url    = {https://jaxenter.com/know-your-history-ides-151761.html},
-}
-
-@WWW{StackOverflow2021,
-  author = {StackOverflow},
-  date   = {2021},
-  title  = {StackOverflow Developer Survey},
-  url    = {https://insights.stackoverflow.com/survey/2021},
-}
-
-@WWW{Tidelift2019,
-  author = {Tidelift},
-  date   = {2019},
-  title  = {Tidelift managed open source survey results},
-  url    = {https://tidelift.com/subscription/managed-open-source-survey},
-}
-
 @Comment{jabref-meta: databaseType:biblatex;}
