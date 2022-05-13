@@ -7,14 +7,6 @@
  address = {Redwood City, CA, USA}
 }
 
-@book{Pollefliet2011,
-  author = {Pollefliet, Leen},
-  title = {Schrijven van verslag tot eindwerk: do's en don'ts},
-  year = {2011},
-  publisher = {Academia Press},
-  address = {Gent}
-}
-
 @article{Creeger2009,
   author = {Creeger, Mache},
   journal = {Communications of the ACM},
@@ -45,6 +37,83 @@
   volume       = {63},
   abstract     = {Evidence shows that integrated development environments (IDEs) are too often functionality-oriented and difficult to use, learn, and master. This article describes challenges in the design of usable IDEs and in the evaluation of the usability of such tools. It also presents the results of three different empirical studies of IDE usability. Different methods are sequentially applied across the empirical studies in order to identify increasingly specific kinds of usability problems that developers face in their use of IDEs. The results of these studies suggest several problems in IDE user interfaces with the representation of functionalities and artifacts, such as reusable program components. We conclude by making recommendations for the design of IDE user interfaces with better affordances, which may ameliorate some of most serious usability problems and help to create more human-centric software development environments.},
   keywords     = {Software development environment, Integrated development environment (IDE), CASE tools, Usability, User interfaces, User-centered design},
+}
+
+@WWW{JAXenter2018,
+  author = {JAXenter},
+  date   = {2018},
+  title  = {Know your history – IDEs are a developer’s best friend},
+  url    = {https://jaxenter.com/know-your-history-ides-151761.html},
+}
+
+@WWW{StackOverflow2021,
+  author = {StackOverflow},
+  date   = {2021},
+  title  = {StackOverflow Developer Survey},
+  url    = {https://insights.stackoverflow.com/survey/2021},
+}
+
+@WWW{Tidelift2019,
+  author = {Tidelift},
+  date   = {2019},
+  title  = {Tidelift managed open source survey results},
+  url    = {https://tidelift.com/subscription/managed-open-source-survey},
+}
+
+@Book{Kiong2019,
+  author  = {Liew Voon Kiong},
+  date    = {2019},
+  title   = {Visual Basic 2019 Handbook: A Concise Guide to VB2019 Programming},
+  comment = {https://www.vbtutor.net/vb2019/vb2019hndbk_preview.pdf},
+}
+
+@Book{Johnson2019,
+  author  = {Bruce Johnson},
+  date    = {2019},
+  title   = {Visual Studio Code: End-to-End Editing and Debugging Tools for Web Developers},
+  comment = {https://pdfcoffee.com/getting-started-with-visual-studio-2019-pdf-free.html},
+}
+
+@Book{Strauss2019,
+  author  = {Dirk Strauss},
+  date    = {2019},
+  title   = {Getting Started with Visual Studio 2019: Learning and Implementing New Features},
+  comment = {https://pdfcoffee.com/qdownload/getting-started-with-visual-studio-2019-pdf-free.html},
+}
+
+@Book{Holzner2004,
+  author  = {Steve Holzner},
+  date    = {2004},
+  title   = {Eclipse A Java Developers Guide},
+  comment = {https://theswissbay.ch/pdf/Gentoomen Library/Misc/Eclipse/O'Reilly Eclipse A Java Developers Guide.pdf},
+}
+
+@Book{Krochmalski2014,
+  author  = {Jarosław Krochmalski},
+  date    = {2014},
+  title   = {IntelliJ IDEA Essentials, Develop better software fast with IntelliJ IDEA},
+  comment = {https://vdoc.pub/download/intellij-idea-essentials-1bjtatpuf63g},
+}
+
+@Book{Contributors2017,
+  author  = {Stack Overflow Contributors},
+  date    = {2017},
+  title   = {Learning Notepad},
+  comment = {https://riptutorial.com/Download/notepadplusplus.pdf},
+}
+
+@WWW{Yu2022,
+  author = {Haiying Yu},
+  date   = {2022},
+  title  = {Compile code programmatically by using C\# compiler},
+  url    = {https://docs.microsoft.com/en-us/troubleshoot/developer/visualstudio/csharp/language-compilers/compile-code-using-compiler},
+}
+
+@Article{Parveen2016,
+  author  = {Zahida Parveen},
+  date    = {2016},
+  title   = {Performance Comparison of Most Common High Level Programming Languages},
+  comment = {https://www.researchgate.net/publication/349665549_Performance_Comparison_of_Most_Common_High_Level_Programming_Languages},
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}

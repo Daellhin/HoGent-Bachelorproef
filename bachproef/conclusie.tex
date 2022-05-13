@@ -14,5 +14,29 @@
 % Heeft het onderzoek geleid tot nieuwe vragen die uitnodigen tot verder 
 %onderzoek?
 
-\lipsum[76-80]
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ l l l l l l }
+        \hline
+                                                    & \textbf{VS Code} & \textbf{Visual Studio} & \textbf{Eclipse} & \textbf{Notepad++} & \textbf{IntelliJ} \\
+        \hline
+        \textbf{Gemiddelde opstart Tijd (in ms) }   & 2026.75          & 32025.4                & 12964.1          & 2200               & 14828.5           \\
+        \textbf{Gemiddelde zoek tijd (in ms) }      & 297.35           & 8.51                   & 384.97           & 6800.47            & 1452.10           \\
+        \textbf{Gemiddelde build tijd C\# (in ms) } & 22285            & 46474                  & 59524.9          & NA                 & NA                \\
+        \textbf{Gemiddeld CPU gebruik (in \%) }     & 0.23           & 0.00                   & 0.01             & 0.00               & 0.01              \\
+        \textbf{Gemiddeld RAM gebruik (in MB) }     & 799.76           & 1321.44                & 1375.34          & 126.45             & 1465.28           \\
+        \hline
+    \end{tabular}
+    \caption{Samenvatting van alle resultaten}
+    \label{tab:resultatenCombined}
+\end{table}
 
+Als conclusie van dit onderzoek kan er genomen worden dat in algemene opzichten VS Code de meest performantie IDE is. Dit komt door de snelste opstart tijd, een snelle zoekfunctie, de snelste build tijd voor C\# code en een medium RAM gebruik. 
+
+Als de gebruiker meer nood heeft aan een gespecialiseerde IDE toegelegd op een specifieke taal (Java of C\#) is IntelliJ of Visual Studio ook een goede keuze. Dit komt omdat deze IDEs meer functies hebben die gebruikt kunnen worden bij het ontwikkelingsproces, dit komt dan wel met een tragere opstart tijd en meer RAM gebruik.
+
+Notepad++ kan een goede keuze zijn als de gebruiker een programma nodig heeft met minimale functionaliteit. Hierbij kan er dan voordeel gemaakt worden van de snelle opstart en extreem lage RAM verbruik.
+
+Er werd ook opgemerkt dat de prestaties van de IDE grotendeels onafhankelijk zijn van de taal waarin het project geschreven is en de performantie meer afhankelijk is van de grote van het project.
+
+Tot slot is er in dit onderzoek opgemerkt dat de build tijden van C\# afhangen van de IDE die het build commando uitvoert. Dit werd niet verwacht aangezien dit onderliggend dezelfde commando's gebruikt. Hier is meer onderzoek voor nodig om te bepalen waarom dit zo is.

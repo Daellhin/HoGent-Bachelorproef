@@ -1,0 +1,25 @@
+%%=============================================================================
+%% Bijlange
+%%=============================================================================
+
+
+\chapter{\IfLanguageName{dutch}{Bijlagen}{Introduction}}
+\section{Task.Json}
+\label{b:taskJson}
+
+\begin{verbatim}
+{
+    "version": "2.0.0",
+    {
+        "label": "build",
+        "command": "dotnet",
+        "type": "process",
+        "args": [
+            "build",
+            "${workspaceFolder}/src/Cake.sln"
+        ],
+        "problemMatcher": "$msCompile"
+    }
+    ]
+}    
+\end{verbatim}
