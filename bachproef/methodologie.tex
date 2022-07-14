@@ -11,72 +11,74 @@
 %% mogelijke manier toegepast hebt om een antwoord te vinden op de
 %% onderzoeksvraag.
 
-In dit hoofdstuk zal de aanpak van het onderzoek besproken worden. Meer bepaald welke aspecten er zullen gemeten en vergeleken worden, en hoe deze gemeten zullen worden. Het ultieme doel van deze bachelorproef is om uit de vergelijking van deze criteria de beste IDE te bepalen voor zowel Java, C\# en algemeen gebruik.
+In dit hoofdstuk zal de aanpak van het onderzoek besproken worden. Meerbepaald welke aspecten er zullen gemeten en vergeleken worden, en hoe deze gemeten zullen worden. Het ultieme doel van deze bachelorproef is om uit de vergelijking van deze criteria de beste IDE te bepalen voor zowel Java, C\# en algemeen gebruik.
 
 \section{Test criteria}
-De criteria die in dit onderzoek zullen gemeten worden zijn software/hardware gebonden. Hiermee word bedoeld dat de uitgevoerde testen meten hoe goed de IDE omgaat met de hardware, hoe efficiënt die is en hoeveel computerkracht die nodig heeft. De criteria die gemeten zullen worden zijn de volgende
+De criteria die in dit onderzoek zullen gemeten worden zijn software/hardware gebonden. Hiermee wordt bedoeld dat de uitgevoerde testen meten hoe goed de IDE omgaat met de hardware, hoe efficiënt die is en hoeveel computerkracht die nodig heeft. De criteria die gemeten zullen worden zijn de volgende
 
 \begin{itemize}
-	\item Opstart tijd
-	\item Vind in bestanden
+	\item Opstarttijd
+	\item Zoeken in bestanden
 	\item Build tijd voor C\# code
 	\item CPU en RAM gebruik
 \end{itemize}
 
 De meeste uitgevoerde testen zijn geautomatiseerd met PowerShell scripts, zodat deze makkelijk opnieuw uit te voeren zijn op ander machines. De gebruikte scripts zijn terug te vinden op een GitHub repository aangemaakt voor dit onderzoek\footnote{https://github.com/Daellhin/HoGent-BachelorproefOnderzoek}. Wanneer er in de volgende paragrafen bij een test een script beschikbaar is zal dit bij naam vernoemd worden.
 
-\subsection{Opstart tijd}
-De opstart tijd is een van de meest basis aspecten van een IDE waarmee een gebruiker iedere keer opnieuw geconfronteerd word. Een korte opstart tijd is handig omdat een gebruiker sneller kan beginnen aan zijn werk. Daarnaast is het ook handig in gevallen waar de IDE moet heropstarten, bijvoorbeeld wanneer er updates worden uitgevoerd of extensies worden geïnstalleerd. Als laatste is een snelle start handig wanneer er iets misloopt met de IDE en deze crasht.
+\subsection{Opstarttijd}
+De opstarttijd is een van de meest basis aspecten van een IDE waarmee een gebruiker iedere keer opnieuw geconfronteerd wordt. Een korte opstarttijd is handig omdat een gebruiker sneller kan beginnen aan zijn werk. Daarnaast is het ook handig in gevallen waar de IDE moet heropstarten, bijvoorbeeld wanneer er updates worden uitgevoerd of extensies worden geïnstalleerd. Als laatste is een snelle start handig wanneer er iets misloopt met de IDE en deze crasht.
 
-De opstart tijd kan in vele IDEs gemeten worden door de logs te raadplegen, hiervoor moet soms wel een extra debug of trace optie aangezet worden, dit word later per IDE besproken.
+De opstarttijd kan in vele IDEs gemeten worden door de logs te raadplegen, hiervoor moet soms wel een extra debug of trace optie aangezet worden, dit word later per IDE besproken.
 
-Om de opstart tijd consistent en meetbaar te maken zal bij de start een specifieke workspace/project meegegeven worden. Hiermee word er voorkomen dat de gebruiker in een start menu een project moet selecteren en de reactietijd van de gebruiker zou worden gemeten.
+Om de opstarttijd consistent en meetbaar te maken zal bij de start een specifieke workspace/project meegegeven worden. Hiermee wordt er voorkomen dat de gebruiker in een start menu een project moet selecteren en de reactietijd van de gebruiker zou worden gemeten.
 
-\subsection{Vind in bestanden}
+\subsection{Zoeken in bestanden}
 Een belangrijke functionaliteit in IDEs is het zoeken in bestanden. Hierbij kan een gebruiker een zoekstring meegeven en geeft de IDE een lijst van resultaten van alle bestanden, in de workspace/folder, waar die zoekstring in voorkomt en op welke plaats in het bestand. Een snellere zoekfunctie is logischerwijs dus goed omdat de gebruiker minder lang moet wachten en sneller verder kan werken.
 
-Om de resultaten consistent te houden word er steeds naar dezelfde zoekterm gezocht, namelijk "TODO". Deze term komt in beide projecten meermaals voor, maar niet genoeg dat er resultaten zouden weggelaten worden. De duur van de zoekopdracht is enkel vergelijkbaar binnen hetzelfde project omdat de grootte van de projecten anders is en ook het aantal gevonden resultaten anders is.
+Om de resultaten consistent te houden word er steeds naar dezelfde zoekterm gezocht, namelijk 'TODO'. Deze term komt in beide projecten meermaals voor, maar niet genoeg dat er resultaten zouden weggelaten worden. De duur van de zoekopdracht is enkel vergelijkbaar binnen hetzelfde project omdat de grootte van de projecten anders is en ook het aantal gevonden resultaten anders is.
 
-De zoektijd kan net zoals de opstart tijd gevonden worden door de logs te raadplegen, weeral moeten vaak extra opties aangezet worden. Voor applicaties waar dit niet gaat word gebruikt gemaakt van een PowerShell script dat meet wanneer alle resultaten zijn gevonden.
+De zoektijd kan net zoals de opstarttijd gevonden worden door de logs te raadplegen, weeral moeten vaak extra opties aangezet worden. Voor applicaties waar dit niet gaat wordt er gebruikt gemaakt van een PowerShell script dat meet wanneer alle resultaten zijn gevonden.
 
 \subsection{Build tijd C\#}
 Voordat een .NET applicatie kan uitgevoerd worden moet het gecompileerd worden naar machine code in de vorm van een .dll bestand \autocite{Yu2022}. Dit gebeurt in een grote stap waar alle C\# code tezamen word gecompileerd.
 
-Dit is weer een stap die tijd inneemt waar de gebruiker op de IDE moet wachten voor die verder kan werken. Onderliggend werken de IDE’s met het dotnet build commando, wat zou kunnen betekenen dat de resultaten gelijk zouden zijn, maar het kan zijn dat verschillende IDE’s anders omgaan met deze commando of dat dit minder CPU tijd krijgt. In deze stap word dus getest of de tijden gelijk zijn.
+Dit is weer een stap die tijd inneemt waar de gebruiker op de IDE moet wachten voor die verder kan werken. Onderliggend werken de IDEs met het dotnet build commando, wat zou kunnen betekenen dat de resultaten gelijk zouden zijn, maar het kan zijn dat verschillende IDEs anders omgaan met dit commando of dat dit minder CPU tijd krijgt. In deze stap wordt er dus getest of de tijden gelijk zijn.
+
+Om consistente resultaten te krijgen zal er voor de build stap steeds de clean stap uitgevoerd worden. Hiermee worden alle tussentijdse bestanden en output bestanden verwijderd. De tijd van deze clean stap zal niet gemeten worden.
 
 \subsection{Build tijd Java}
-De build tijd van Java code word niet getest en in deze paragraaf word uitgelegd waarom. Het compilatie proces van Java is anders als dat van C\#, wat Java compileert de code iteratief waar C\# dit in een grote stap doet. Dit komt omdat de Java compiler ieder .java bestand compileert naar een individuele .class bestand en op het einde combineert in een .jar bestand, wat eigenlijk een .zip bestand van .class bestanden word. Dit is in contrast met C\# waar dit in een keer een monolithische .dll bestand word \autocite{Parveen2016}.
+De build tijd van Java code wordt niet getest en in deze paragraaf wordt uitgelegd waarom. Het compilatie proces van Java is anders als dat van C\#, want Java compileert de code iteratief waar C\# dit in een grote stap doet. Dit komt omdat de Java compiler ieder .java bestand compileert naar een individuele .class bestand en op het einde combineert in een .jar bestand, wat eigenlijk een .zip bestand van .class bestanden wordt. Dit is in contrast met C\# waar dit in een keer een monolithisch .dll bestand wordt \autocite{Parveen2016}.
 
-Omdat Java iteratief kan compileren hebben de IDEs en auto compilatie functie\footnote{https://docs.oracle.com/cd/E13224\_01/wlw/docs103/guide/ideuserguide/build/conBuildProcess.html}\footnote{https://www.jetbrains.com/help/idea/compiling-applications.html\#auto-build}\footnote{https://code.visualstudio.com/docs/java/java-debugging} , waarbij er wanneer de gebruiker en .java bestand heeft aangepast dit in de achtergrond gecompileerd word tot een .class bestand. Hierdoor merkt de gebruiker niets van de build tijd en is het dus niet nuttig om dit te testen, aangezien dit niet tot productiviteitsverhogingen kan lijden.
+Omdat Java iteratief kan compileren hebben de IDEs een auto compilatie functie\footnote{https://docs.oracle.com/cd/E13224\_01/wlw/docs103/guide/ideuserguide/build/conBuildProcess.html}\footnote{https://www.jetbrains.com/help/idea/compiling-applications.html\#auto-build}\footnote{https://code.visualstudio.com/docs/java/java-debugging}, waarbij er wanneer de gebruiker een .java bestand heeft aangepast dit in de achtergrond gecompileerd word tot een .class bestand. Hierdoor merkt de gebruiker niets van de build tijd en is het dus niet nuttig om dit te testen, aangezien dit niet tot productiviteitsverhogingen kan leiden.
 
 \subsection{CPU en ram gebruik}
-Het CPU en RAM gebruik geeft een indicatie van hoe efficiënt de IDEs omgaan met de hardware van de machine. Daarnaast is een laag verbruik ook goed omdat dit meer computerkracht overlaat voor het draaien en debuggen van de te bouwen applicatie en ook multitasking met andere programma’s die tegelijk openstaan.
+Het CPU en RAM gebruik geeft een indicatie van hoe efficiënt de IDEs omgaan met de hardware van de machine. Daarnaast is een laag verbruik ook goed omdat dit meer computerkracht overlaat voor het draaien en debuggen van de te bouwen applicatie en ook multitasking met andere programma's die tegelijk openstaan.
 
-Een indicatie van het CPU en RAM verbruik kan gezien worden in de Windows Task Manager, maar dit is enkel een momentopname. Windows bied wel Windows Management Instrumentation (WMI) queries aan om via scripts allerhande zaken van de draaiende machine raad te plegen. Binnen WMI zijn er ook queries om het huidige CPU en RAM verbruikt te vragen. Door van deze mogelijkheden gebruik te maken is het mogelijk om met een script over een tijdspannen het CPU en RAM verbruik te meten. Het gebruikte script kan gevonden worden op de repository onder de naam CpuAndRamProfiler.ps1.
+Een indicatie van het CPU en RAM verbruik kan gezien worden in de Windows Task Manager, maar dit is enkel een momentopname. Windows biedt wel Windows Management Instrumentation (WMI) queries aan om via scripts allerhande zaken van de draaiende machine raad te plegen. Binnen WMI zijn er ook queries om het huidige CPU en RAM verbruik te vragen. Door van deze mogelijkheden gebruik te maken is het mogelijk om met een script over een tijdspanne het CPU en RAM verbruik te meten. Het gebruikte script kan gevonden worden op de repository onder de naam CpuAndRamProfiler.ps1.
 
 \newpage
 
 \section{Testmachine}
-Alle testen zullen uitgevoerd worden op de OMEN 15-en0009n\footnote{https://support.hp.com/nl-nl/document/c06970407} laptop. Dit is redelijk recente laptop, met releasedatum 2020 en volgende specificaties:
+Alle testen zullen uitgevoerd worden op de OMEN 15-en0009n\footnote{https://support.hp.com/nl-nl/document/c06970407} laptop. Dit is een redelijk recente laptop, met releasedatum 2020 en volgende specificaties:
 
 \begin{itemize}
 	\item 	CPU: AMD Ryzen 7 4800H (2,9 GHz base, tot 4,2 GHz boost, 8 MB L3 cache, 8 cores)
 	\item RAM: 16 GB DDR4-3200 SDRAM
 	\item SSD: 1 TB PCIe NVMe M.2
-	\item GPU: GeForce RTX 2060
-	\item OS: Windows 11
+	\item GPU: Nvidia GeForce RTX 2060
+	\item OS: Windows 11 Home, Build 22621.1 64bit
 \end{itemize}
 
-De volgende experimenten kunnen natuurlijk ook herhaald worden op andere machines met verschillende specificaties. Hierbij word er verwacht dat de individuele resultaten lichtelijk anders zullen zijn, maar de conclusies niet zullen verschillen.
+De volgende experimenten kunnen natuurlijk ook herhaald worden op andere machines met verschillende specificaties. Hierbij wordt er verwacht dat de individuele resultaten lichtelijk anders zullen zijn, maar de conclusies niet zullen verschillen.
 
 \newcommand{\cakeRepoFN}{\footnote{https://github.com/cake-build/cake}}
 \newcommand{\mindustryRepoFN}{\footnote{https://github.com/Anuken/Mindustry}}
 
 \section{Testprojecten}
-Om de capabiliteit van de IDEs te testen zijn er twee testprojecten gekozen, 1 in Java en 1 in C\# geschreven. Het eerste project is Mindustry\mindustryRepoFN, dit is een community gemaakt automatisatie spel gemaakt in Java. Het tweede project is Cake\cakeRepoFN of ook C\# Make genoemd, dit  is a cross platform build automatisatie systeem. Beide projecten zijn populaire open source projecten op GitHub met respectievelijk 200 en 400 contributers. De projecten kunnen gecloned worden met git en opgezet zoals beschreven in de respectievelijke readme bestanden.
+Om de capabiliteiten van de IDEs te testen zijn er twee testprojecten gekozen, één in Java en één in C\# geschreven. Het eerste project is Mindustry\mindustryRepoFN, dit is een community gemaakt automatisatie spel gemaakt in Java. Het tweede project is Cake\cakeRepoFN of ook C\# Make genoemd, dit  is a cross platform build automatisatie systeem. Beide projecten zijn populaire open source projecten op GitHub met respectievelijk 200 en 400 contributors. De projecten kunnen gecloned worden met git en opgezet zoals beschreven in de respectievelijke Readme.md bestanden.
 
 \section{Installatie}
-Voor de testen uitgevoerd kunnen worden moet natuurlijk de te testen software ook op de machine geïnstalleerd worden. De software is beschikbaar op de officiële sites van de softwaremakers en is daarnaast ook te installeren vanaf de console terminal met de Chocolatey package manager \footnote{https://chocolatey.org/} en volgende commando’s
+Vooraleer de testen uitgevoerd kunnen worden moet natuurlijk de te testen software ook op de machine geïnstalleerd worden. De software is beschikbaar op de officiële sites van de softwaremakers en is daarnaast ook te installeren vanaf de console terminal met de Chocolatey package manager \footnote{https://chocolatey.org/} en volgende commando's
 
 \begin{verbatim}
 choco install vscode
@@ -104,53 +106,60 @@ Voor de geïnstalleerde IDEs is steeds voor de laatste versie gekozen, dit zijn:
 	\label{tab:versie}
 \end{table}
 
-\section{Extensions}
-Naast de standard installatie moeten er bij sommige IDEs nog enkele extensions geïnstalleerd worden. Dit word gedaan om alle IDEs zo goed mogelijk te kunnen testen op vlakken van Java, C\# en algemeen.
+Aan de configuratie van de IDEs zijn veranderingen aangebracht en zijn de standaard instellingen gebruikt. Dit is gedaan om de vergelijking zo representatief mogelijk te maken.
 
-VS Code
+\section{Extensions}
+Naast de standaard installatie moeten er bij sommige IDEs nog enkele extensions geïnstalleerd worden. Dit wordt gedaan om alle IDEs zo goed mogelijk te kunnen testen op vlakken van Java, C\# en algemeen. De extensions zijn te installeren via de standaard ingebouwde marketplaces.
+
+Voor VS Code zijn dit:
 \begin{itemize}
-	\item Extension Pack for Java
-	\item .NET Extension Pack
+	\item Java ondersteuning met 'Extension Pack for Java'
+	\item C\# ondersteuning met '.NET Extension Pack'
 \end{itemize}
 
-Eclipse
+Voor Eclipse is dit:
 \begin{itemize}
-	\item Eclipse aCute - C\# Developement tools Latest
+	\item C\# ondersteuning met 'Eclipse aCute - C\# Developement tools Latest'
 \end{itemize}
 
 \section{Test Criteria per IDE}
-In deze sectie word er in meer detail beschreven hoe alle testen uitgevoerd worden in iedere IDE.
-
+In deze sectie wordt er in meer detail beschreven hoe alle testen uitgevoerd worden in iedere IDE.
 
 \subsection{VS Code}
-\subsubsection{Opstart Tijd}
-De opstart tijd van VS Code kan teruggevonden worden in de 'Developper: Startup Performance.' log, onder de hoofdstukken 'Raw Perf Marks: main' en 'raw Perf Marks: renderer'. Hiervan word in dit onderzoek de opstarttijd genomen als het verschil van de Unix timestamps van 'code/timeOrigin' en 'code/didLoadExtensions'.
+\subsubsection{Opstart tijd}
+De opstarttijd van VS Code kan teruggevonden worden in de 'Developper: Startup Performance.' log, onder de hoofdstukken 'Raw Perf Marks: main' en 'Raw Perf Marks: renderer'. Hiervan wordt in dit onderzoek de opstarttijd genomen als het verschil van de Unix timestamps van 'code/timeOrigin' en 'code/didLoadExtensions'.
 
 \newpage
 
 Methode: VSCodeStartupLogsToCSV.ps1
 \begin{itemize}
 	\item Start VS Code: code ./workspaceNaam
-	\item Open log: Ctrl + Shift + P > "Developer: Startup Performance"
-	\item Sla bestand op: Ctrl + S
+	\item Open het log bestand: Ctrl + Shift + P > 'Developer: Startup Performance'
+	\item Sla het bestand op: Ctrl + S
 \end{itemize}
 
 Voorbeeld
 \vspace{\verbatimOffset}
 \begin{verbatim}
-    Name    Timestamp(Unix)   Delta   Total
-    code/timeOrigin 1651418251699   0   0
-    code/didStartMain   1651418251844   145 145
+    ## Raw Perf Marks: main
+    Name            Timestamp(Unix) Delta Total
+    code/timeOrigin 1653554884506   0     0
+    ...
+    
+    ## Raw Perf Marks: renderer
+    Name                   Timestamp(Unix) Delta Total
+    ...
+    code/didLoadExtensions 1653554884869   11    2558
 \end{verbatim}
 
 \subsubsection{Zoeken in bestanden}
-Zoeken in bestanden in VS Code is mogelijk via de Search zijbalk knop. De zoektijd in VS Code kan teruggevonden worden in de debug logs wanneer de 'trace' optie aanstaat.
+Zoeken in bestanden in VS Code is mogelijk via de 'Search' zijbalk knop. De zoektijd in VS Code kan teruggevonden worden in het window log bestand wanneer de 'Trace' optie aanstaat.
 
 Methode: VSCodeSearchLogsToCSV.ps1
 \begin{itemize}
-	\item Ctrl + P: 'Developer: Set Log Level...' > 'Trace'
-	\item Ctrl + P: 'Developer: Open Log File...' > 'Window'
-	\item Ctrl + S om het bestand op te slaan
+	\item Verander de log level: Ctrl + P > Developer: Set Log Level... > 'Trace'
+	\item Open het log bestand: Ctrl + P > Developer: Open Log File... > 'Window'
+	\item Sla het bestand op: Ctrl + S
 \end{itemize}
 
 Voorbeeld
@@ -160,13 +169,13 @@ Voorbeeld
 \end{verbatim}
 
 \subsubsection{Build tijd C\# code}
-De build tijd van C\# code in VS Code kan teruggevonden worden in de console wanneer de juiste argumenten meegeven worden in een task.json bestand, een voorbeeld is beschikbaar in de bijlage \ref{b:taskJson}.
+De build tijd van C\# code in VS Code kan teruggevonden worden in de console wanneer de juiste parameters meegegeven worden. Dit kan door deze in een task.json bestand te beschrijven, een voorbeeld is beschikbaar in de bijlage \ref{b:taskJson}.
 
 Methode: VSCodeBuildLogs.ps1 en VSCodeBuildLogsToCSV.ps1
 \begin{itemize}
 	\item	Maak een task.json bestand aan in de .vscode folder van de workspace, zoals het voorbeeld in de bijlage
-	\item Voer de clean task uit (tijd word niet gemeten): Ctrl + Shift + P > Tasks: Run Task > Clean
-	\item Voer de build task uit (tijd word gemeten): Ctrl + Shift + P > Tasks: Run Task > Build
+	\item Voer de Clean task uit (tijd wordt niet gemeten): Ctrl + Shift + P > Tasks: Run Task > 'Clean'
+	\item Voer de Build task uit (tijd wordt gemeten): Ctrl + Shift + P > Tasks: Run Task > 'Build'
 \end{itemize}
 
 Voorbeeld
@@ -178,10 +187,10 @@ Voorbeeld
 \subsection{Visual studio}
 
 \subsubsection{Opmerking}
-Visual studio heeft geen ondersteuning voor Java projecten, dus zullen deze testen enkel uitgevoerd worden op het Cake project.
+Visual studio heeft geen ondersteuning voor Java projecten, hierdoor kan het Mindustry project niet getest worden en zullen de testen enkel uitgevoerd worden op het Cake project.
 
-\subsubsection{Opstart Tijd}
-De opstart tijd van Visual Studio kan berekend worden aan de hand van de timestamps van de Activity log. De Activity log kan opgeslagen worden door Visual studio vanaf te terminal te starten met de /log parameter. Het moment wanneer de .NET Framework versie wordt gelogd is het programma opgestart en kan er code bewerkt worden.
+\subsubsection{Opstarttijd}
+De opstarttijd van Visual Studio kan berekend worden aan de hand van de timestamps in de Activity log. De Activity log kan opgeslagen worden door Visual Studio vanaf de terminal te starten met de /log parameter. Het moment wanneer de .NET Framework versie wordt gelogd is het programma opgestart en kan er code bewerkt worden.
 
 Methode: VisualStudioBuildLogs.ps1 en VisualStudioBuildLogsToCSV.ps1
 \begin{itemize}
@@ -195,15 +204,15 @@ Voorbeeld
 \end{verbatim}
 
 \subsubsection{Zoeken in bestanden}
-Zoeken in bestanden heeft geen logging mogelijkheden in Visual Studio. Hiervoor is er een powershell script gebruikt, dat de tijd meet tussen de start van de zoekopdracht en het verschijnen van alle resultaten. Dit script kan gevonden worden onder de naam VisualStudioSearchTime.ps1.
+Zoeken in bestanden in Visual Studio is mogelijk via de toolbalk onder Edit > Find and Replace > Find in Files. Zoeken in bestanden heeft geen ingebouwde logging mogelijkheden in Visual Studio. Om deze test toch uit te kunnen voeren is er een PowerShell script gebruikt dat de tijd meet tussen de start van de zoekopdracht en het verschijnen van alle resultaten op het scherm. Dit script kan gevonden worden onder de naam VisualStudioSearchTime.ps1.
 
 \subsubsection{Build tijd C\# code}
-De build tijd van C\# code in Visual studio kan gevonden worden in de output build console. Hiervoor moet de output verbosity naar Normal gezet worden.
+De build tijd van C\# code in Visual studio kan gevonden worden in de output build console. Hiervoor moet de output verbosity naar 'Normal' gezet worden.
 
 Methode: VisualStudioBuildLogs.ps1 en VisualStudioBuildLogsToCSV.ps1
 \begin{itemize}
-	\item Tools → Options → Projects and Solutions → Build and Run → “MSBuild project build: output verbosity”: Normal
-	\item In de build console: Ctrl + S om het bestand op te slaan
+	\item Verander de output verbosity: Tools > Options > Projects and Solutions > Build and Run > MSBuild project build: output verbosity: 'Normal'
+	\item Sla de console output als bestand op: Ctrl + S (hiervoor moet eerst de output console geselecteerd zijn)
 \end{itemize}
 
 Voorbeeld
@@ -213,8 +222,8 @@ Voorbeeld
 \end{verbatim}
 
 \subsection{Eclipse}
-\subsubsection{Opstart Tijd}
-De opstart tijd van Eclipse is raad te plegen in de debug console wanneer Eclipse opgestart word met de -debug parameter.
+\subsubsection{Opstarttijd}
+De opstarttijd van Eclipse is raad te plegen in de debug console wanneer Eclipse opgestart wordt met de -debug parameter.
 
 Methode: EclipseStartupLogs.ps1 en EclipseStartupLogsToCSV.ps1
 \begin{itemize}
@@ -228,7 +237,7 @@ Voorbeeld
 \end{verbatim}
 
 \subsubsection{Zoeken in bestanden}
-Zoeken in bestanden in Eclipse is mogelijk via Search > Search > File Search de zoektijd hierbij is gelogd in de debug console wanneer een .options bestand met 'org.eclipse.search/perf=true' word meegegeven.
+Zoeken in bestanden in Eclipse is mogelijk via de toolbalk onder Search > Search > File Search. De zoektijd is hierbij gelogd in de debug console wanneer een .options bestand met 'org.eclipse.search/perf=true' wordt meegegeven.
 
 Methode: EclipseSearchLogs.ps1
 \begin{itemize}
@@ -249,12 +258,13 @@ Voorbeeld
 \end{verbatim}
 
 \subsubsection{Build tijd C\# code}
-De build tijd voor C\# code in Eclipse word standaard gelogd in de build console.
+De build tijd voor C\# code in Eclipse wordt standaard gelogd in de build console.
 
 Methode: EclipseBuildLogs.ps1
 \begin{itemize}
-	\item Run > Run as > Run as dotnet project
-	\item In het console window: Console > 'Open dotnet build console'
+	\item Voer de build task uit: Run > Run as > Run as dotnet project
+	\item Open de build console: Console > Open dotnet build console
+    \item Sla de console output als bestand op: Ctrl + S (hiervoor moet eerst de output console geselecteerd zijn)
 \end{itemize}
 
 Voorbeeld
@@ -265,10 +275,10 @@ Voorbeeld
 
 \subsection{Notepad++}
 \subsubsection{Opmerking}
-Er zijn geen ingebouwde mogelijkheden om programma’s te builden, dus deze test zal bij dit programma overgeslagen worden.
+Er zijn geen ingebouwde mogelijkheden om programma's te builden in Notepad++. Om dit toch te doen moet er een externe terminal gebruikt worden. Aangezien de externe terminal geen deel is van het programma, zal deze test niet uitgevoerd worden.
 
-\subsubsection{Opstart Tijd}
-De opstart tijd van Notepad++ is getoond in een pop-up menu wanneer de applicatie gestart is met de optie '-loadingTime'.
+\subsubsection{Opstarttijd}
+De opstarttijd van Notepad++ wordt getoond in een pop-up menu wanneer de applicatie gestart is met de optie '-loadingTime'. De precisie van deze output is wel enkel beschikbaar in seconden.
 
 Methode: NotepadStartupTime.ps1
 \begin{itemize}
@@ -278,11 +288,11 @@ Methode: NotepadStartupTime.ps1
 Voorbeeld
 \vspace{\verbatimOffset}
 \begin{verbatim}
-    Loading time 4 seconds    
+    Loading time 4 seconds
 \end{verbatim}
 
 \subsubsection{Zoeken in bestanden}
-Zoeken in bestanden heeft geen logging mogelijkheden in Notepad++. Hiervoor is er een PowerShell script gebruikt, dat de tijd meet tussen de start van de zoekopdracht en het verschijnen van alle resultaten. Dit script kan gevonden worden onder de naam NotepadSearchTime.ps1.
+Zoeken in bestanden in Visual Studio is mogelijk via de toolbalk onder Search > Find in Files. Zoeken in bestanden heeft geen ingebouwde logging mogelijkheden in Notepad++. Om deze test toch uit te kunnen voeren is er een PowerShell script gebruikt dat de tijd meet tussen de start van de zoekopdracht en het verschijnen van alle resultaten op het scherm. Dit script kan gevonden worden onder de naam NotepadSearchTime.ps1.
 
 \subsection{IntelliJ IDEA}
 \subsubsection{Opmerking}
@@ -290,12 +300,12 @@ IntelliJ heeft geen mogelijkheden om C\# projecten te openen, hierdoor zal er en
 
 JetBrains bied wel een gespecialiseerde IDE aan voor .NET projecten. Dit is in de vorm van Rider, maar deze IDE is niet in het onderzoek opgenomen.
 
-\subsubsection{Opstart Tijd}
-De opstart tijd van IntelliJ is afleidbaar van de timestamps uit het logbestand. Hier kan de opstarttijd berekend worden uit het verschil van de eerste timestamp en de "notify that start-up thread is free" timestamp.
+\subsubsection{Opstarttijd}
+De opstarttijd van IntelliJ is afleidbaar van de timestamps uit het logbestand. Hier kan de opstarttijd berekend worden uit het verschil van de eerste timestamp en de 'notify that start-up thread is free' timestamp.
 
 Methode: IntelliJStartupLogs.ps1 en IntelliJStartupLogsToCSV.ps1
 \begin{itemize}
-	\item Help > Show Log in Explorer
+	\item Toon het log bestand: Help > Show Log in Explorer
 \end{itemize}
 
 Voorbeeld
@@ -306,11 +316,11 @@ Voorbeeld
 \end{verbatim}
 
 \subsubsection{Zoeken in bestanden}
-Zoeken in bestanden in IntelliJ kan geactiveerd worden via Edit > Find > Find in files (Directory), hierbij worden de zoektijd opgeslagen in het hoofd log bestand.
+Zoeken in bestanden in IntelliJ kan geactiveerd worden via Edit > Find > Find in files (Directory), hierbij word de zoektijd opgeslagen in het hoofd log bestand.
 
 Methode: IntelliJSearchLogsToCSV.ps1
 \begin{itemize}
-	\item Help > Show Log in Explorer
+	\item Toon het log bestand: Help > Show Log in Explorer
 \end{itemize}
 
 Voorbeeld
@@ -324,7 +334,7 @@ Voorbeeld
 \newpage
 
 \subsection{Resultaten}
-\subsubsection{Opstart tijd}
+\subsubsection{Opstarttijd}
 
 \begin{table}[h!]
 	\centering
@@ -370,9 +380,9 @@ Voorbeeld
 	\label{tab:resultatenStartupMindustry}
 \end{table}
 
-Uit tabel \ref{tab:resultatenStartupCake} en \ref{tab:resultatenStartupMindustry} is af te lijden dat VS Code en Notepad++ een snellere opstart tijd hebben dan Visual Studio, Eclipse en IntelliJ. Deze 3 IDEs nemen  tot 15 keer zoveel tijd in beslag om op te starten. Dit is te verklaren door het feit dat VS Code en Notepad++ beter geclassificeerd kunnen worden als code editors en niet als echte IDE door hun minimum aan functies. 
+Uit tabel \ref{tab:resultatenStartupCake} en \ref{tab:resultatenStartupMindustry} is er af te leiden dat VS Code en Notepad++ een snellere opstarttijd hebben dan Visual Studio, Eclipse en IntelliJ. Deze 3 IDEs nemen  tot 15 keer zoveel tijd in beslag om op te starten. Dit is te verklaren door het feit dat VS Code en Notepad++ beter geclassificeerd kunnen worden als code editors en niet als echte IDE door hun minimum aan functies (zonder dat er plugins worden toegevoegd). 
 
-Er valt ook op te merken dat er minimaal verschil in opstart tijd is tussen de verschillende projecten.
+Er valt ook op te merken dat er minimaal verschil in opstarttijd is tussen de verschillende projecten.
 
 \newpage
 
@@ -422,9 +432,9 @@ Er valt ook op te merken dat er minimaal verschil in opstart tijd is tussen de v
 	\label{tab:resultatenSearchMindustry}
 \end{table}
 
-Uit tabel \ref{tab:resultatenSearchCake} en \ref{tab:resultatenSearchMindustry} is af te lijden dat Visual Studio, VS Code en Eclipse het snelste zoekresultaten aan de gebruiker weergeven. Het verschil in zoektijd van Visual Studio tegenover VS Code en Eclipse is procentueel erg groot, maar is verwaarloosbaar omdat een vertraging van ~200ms niet zal gemerkt worden door de gebruiker. De zoekresultaten in IntelliJ zijn algemeen ook vrij snel, maar worden naar beneden gehaald door enkele trage resultaten die tot 5 seconden duurden. Opmerkelijk zijn de zeer trage zoekresultaten in Notepad++, dit mogelijks te verklaren omdat dit programma niet aan zoek indexering doet, waardoor elke bestand in de workspace moet doorzocht worden.
+Uit tabel \ref{tab:resultatenSearchCake} en \ref{tab:resultatenSearchMindustry} is af te leiden dat Visual Studio, VS Code en Eclipse het snelste zoekresultaten aan de gebruiker weergeven. Het verschil in zoektijd van Visual Studio tegenover VS Code en Eclipse is procentueel erg groot, maar is verwaarloosbaar omdat een vertraging van ~200ms niet zal gemerkt worden door de gebruiker. De zoekresultaten in IntelliJ zijn algemeen ook vrij snel, maar worden naar beneden gehaald door enkele trage resultaten die tot 5 seconden duurden. Opmerkelijk zijn de zeer trage zoekresultaten in Notepad++, dit is mogelijks te verklaren omdat dit programma niet aan zoek   indexering doet. Hierdoor moet er voor elke zoekopdracht alle bestanden in de workspace doorzocht worden. Dit is niet nodig bij programma's die aan zoek indexering doen, omdat deze de index kunnen doorzoeken wat efficiënter is dan alle bestanden individueel te doorzoeken.
 
-Er valt weeral op dat het project waarop de testen uitgevoerd worden geen verandering geeft aan de resultaten. Dit wel met uitzondering van Notepad++ die in het Cake project meer bestanden moet doorzoeken als het Mindustry project.
+Er valt weeral op dat het project waarop de testen uitgevoerd worden geen verandering geeft aan de resultaten. Dit is wel met uitzondering van Notepad++ die in het Cake project meer bestanden moet doorzoeken als het Mindustry project, wat resulteert in een hogere zoektijd.
 
 \newpage
 
@@ -452,7 +462,7 @@ Er valt weeral op dat het project waarop de testen uitgevoerd worden geen verand
 	\label{tab:resultatenBuildCake}
 \end{table}
 
-Uit tabel \ref{tab:resultatenBuildCake} is op te merken dat de snelheid van het build proces afhangt van de IDE waar het word in uitgevoerd. De gemiddelde tijd van VS Code is dubbel zo snel als Visual Studio en Eclipse is nog trager. Dit werd niet verwacht aangezien alle IDEs onderliggend hetzelfde dotnet build commando uitvoeren.
+Uit tabel \ref{tab:resultatenBuildCake} is op te merken dat de snelheid van het build proces afhangt van de IDE waar het wordt in uitgevoerd. De gemiddelde tijd van VS Code is dubbel zo snel als Visual Studio en Eclipse is nog trager. Dit werd niet verwacht aangezien alle IDEs onderliggend hetzelfde dotnet build commando uitvoeren.
 
 \newpage
 
@@ -501,10 +511,11 @@ Uit tabel \ref{tab:resultatenBuildCake} is op te merken dat de snelheid van het 
 	\label{tab:resultatenCPUMindustry}
 \end{table}
 
-Uit tabel \ref{tab:resultatenCPUCake} en \ref{tab:resultatenCPUMindustry} zijn af te lijden dat het CPU gebruik van alle IDEs, wanneer deze in de idle stad zijn, 1\% of minder is. Sommige editors hebben soms een achtergrond proces dat even CPU tijd opneemt, maar dit komt enkel sporadisch voor. Dit is een goed resultaat want dit betekende dat de machine veel processorkracht over heeft om andere programma's te draaien.
+Uit tabel \ref{tab:resultatenCPUCake} en \ref{tab:resultatenCPUMindustry} zijn af te leiden dat het CPU gebruik van alle IDEs, wanneer deze in de idle stnad zijn, gemiddeld minder dan 1\% is. Sommige editors hebben soms een achtergrond proces dat even CPU tijd opneemt, maar dit komt enkel sporadisch voor. Dit is een goed resultaat want dit betekende dat de machine veel processorkracht over heeft om andere programma's te draaien.
+
 Deze resultaten zijn wel enkel bekomen wanneer het programma in de idle stand is en dus niet hevig gebruikt word door de gebruiker of aan het debuggen is. Dit zou andere resultaten opleveren.
 
-Net zoals de vorige resultaten heeft het project waar de testen worden op uitgevoerd een minimaal effect.
+Net zoals de vorige resultaten heeft het project waar de testen worden op uitgevoerd een geen tot een minimaal effect.
 
 \newpage
 
@@ -553,7 +564,7 @@ Net zoals de vorige resultaten heeft het project waar de testen worden op uitgev
 	\label{tab:resultatenRAMMindustry}
 \end{table}
 
-Uit tabel \ref{tab:resultatenRAMCake} en \ref{tab:resultatenRAMMindustry} is af te lijden dat Notepad++ het kleinste RAM verbruik heeft met maar gemiddeld 130MB in gebruik. Het RAM gebruik van VS Code ligt relatief laag met 700MB to 800MB en het verbruik van de grootte IDEs ligt nog wat hoger rond de 1300MB.
+Uit tabel \ref{tab:resultatenRAMCake} en \ref{tab:resultatenRAMMindustry} is af te leiden dat Notepad++ het kleinste RAM verbruik heeft met maar gemiddeld 130MB in gebruik. Het RAM gebruik van VS Code ligt relatief laag met 700MB to 800MB en het verbruik van de grootte IDEs ligt nog wat hoger rond de 1300MB.
 
 Er valt ook op te merken dat het RAM verbruik van Visual Studio en IntelliJ veel onder de aanbevolen hoeveelheid RAM ligt. Dit is te verklaren met dat het programma in idle stand is en dus geen RAM moet toewijzen aan bv de debugger. 
 

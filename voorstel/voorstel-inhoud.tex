@@ -5,7 +5,7 @@
 
 De job van een programmeur is complex met verschillende verantwoordelijkheden. Dit gaat van het effectieve schrijven van nieuwe code tot het testen van deze code, het opsporen van fouten, het beheren van verschillende versies... Om deze lasten te verminderen zijn er over de jaren heen verschillende geïntegreerde ontwikkelingsomgeving (IDEs) op de markt gekomen, met het doel de productiviteit van de programmeur te verhogen. 
 
-IDEs zijn ver gekomen sinds het idee ten eerste werd voorgesteld in de 1980 \autocite{Kline2005}. De eerste versies waren onhandig in gebruik en vereisten meerdere uren professionele training om effectief gebruikt te kunnen worden. Deze programma’s hadden wel het potentieel om programmeurs productiever te laten worden, maar door de grote leercurve verkozen vele de gewone tekst-editor. De kost van de eerste software was ook een grote barrière, deze kon makkelijk oplopen tot \$20,000 per ontwikkelaar. Hedendaags gebruikt bijna iedere programmeur een IDE en deze zijn vaak gratis en open source. 
+IDEs zijn ver gekomen sinds het idee ten eerste werd voorgesteld in de 1980 \autocite{Kline2005}. De eerste versies waren onhandig in gebruik en vereisten meerdere uren professionele training om effectief gebruikt te kunnen worden. Deze programma's hadden wel het potentieel om programmeurs productiever te laten worden, maar door de grote leercurve verkozen vele de gewone tekst-editor. De kost van de eerste software was ook een grote barrière, deze kon makkelijk oplopen tot \$20,000 per ontwikkelaar. Hedendaags gebruikt bijna iedere programmeur een IDE en deze zijn vaak gratis en open source. 
 \newpage
 
 In dit onderzoek wordt getracht te achterhalen hoe het met de performantie van de meest populaire IDEs gesteld is. 
@@ -23,9 +23,9 @@ In deze thesis zullen volgende onderzoeksvragen uitgewerkt worden:
 \section{State-of-the-art}
 \label{sec:state-of-the-art}
 
-De hoofdfunctie van de geïntegreerde ontwikkelingsomgeving is de broncode-editor, deze is meestal voorzien van syntax markering, auto aanvulling en code controle. Daarnaast heeft de moderne IDE een ingebouwde debugger en versie controlesysteem. Momenteel is de populairste IDE Visual Studio Code \autocite{StackOverflow2021}, deze gratis software is vooral populair door zijn kleine leercurve en ecosysteem van extensies. Een andere populaire gratis IDE is Eclipse, deze is gespecialiseerd in Java, maar heeft vele extensie voor andere programmeertalen. Visual Studio is een betalende IDE, met een gratis versie, en heeft ingebouwde ondersteuning voor C, C++, C\#, F\#, TypeScript, XML en HTML. Een andere populaire optie zijn de IDEs van JetBrains, dit bedrijf biedt meerder betalende IDEs aan met bijvoorbeeld IntelliJ voor Java-applicaties .
+De hoofdfunctie van de geïntegreerde ontwikkelingsomgeving is de broncode-editor, deze is meestal voorzien van syntax markering, auto aanvulling en code controle. Daarnaast heeft de moderne IDE een ingebouwde debugger en versie controlesysteem. Momenteel is de populairste IDE Visual Studio Code \autocite{StackOverflow2021}, deze gratis software is vooral populair door zijn kleine leercurve en ecosysteem van extensies. Een andere populaire gratis IDE is Eclipse, deze is gespecialiseerd in Java, maar heeft vele extensie voor andere programmeertalen. Visual Studio is een betalende IDE, met een gratis versie, en heeft ingebouwde ondersteuning voor C, C++, C\#, F\#, TypeScript, XML en HTML. Een andere populaire optie zijn de IDEs van JetBrains, dit bedrijf biedt meerdere betalende IDEs aan met bijvoorbeeld IntelliJ voor Java-applicaties .
 
-Er is geen bestaand onderzoek over de hardware requirements van IDEs en hoe de verschillende programma’s hier zich van elkaar onderscheiden. Het is wel algemeen aanvaard dat voor sommige projecten de hardware requirements zeer hoog worden. Over dit onderwerp is er al onderzoek gebeurd voor het migreren van desktop gebaseerde IDEs naar de cloud \autocite{Devadiga2021}.
+Er is geen bestaand onderzoek over de hardware requirements van IDEs en hoe de verschillende programma's hier zich van elkaar onderscheiden. Het is wel algemeen aanvaard dat voor sommige projecten de hardware requirements zeer hoog worden. Over dit onderwerp is er al onderzoek gebeurd voor het migreren van desktop gebaseerde IDEs naar de cloud \autocite{Devadiga2021}.
 
 % Voor literatuurverwijzingen zijn er twee belangrijke commando's:
 % \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur geen onderdeel is van de zin.
@@ -35,7 +35,7 @@ Er is geen bestaand onderzoek over de hardware requirements van IDEs en hoe de v
 \section{Methodologie}
 \label{sec:methodologie}
 
-Dit onderzoek zal bestaan uit technische die het verschil zullen  meten in de opstart en compileer -tijden in zowel run als debug configuratie, en het systeemverbruik bij normaal gebruik en op de achtergrond. Hiervoor zullen 2 open source projecten gebruikt worden: Cake of C\# Make, voornamelijk in C\# gescreven en Mindustry; in Java geschreven.
+Dit onderzoek zal bestaan uit technische proeven die het verschil zullen  meten in de opstart en compileer -tijden in zowel run als debug configuratie, en het systeemverbruik bij normaal gebruik en op de achtergrond. Hiervoor zullen twee open source projecten gebruikt worden: Cake of C\# Make, voornamelijk in C\# gescreven en Mindustry, in Java geschreven.
 
 De IDEs die opgenomen zullen worden in het onderzoek zijn de 4 meest populaire IDEs \autocite{StackOverflow2021} samen met hun betalende/gratis tegenhangers. Dit komt dus neer op Visual Studio Code, Visual Studio 2022, Notepad++, IntelliJ en Eclipse. 
 
@@ -45,7 +45,7 @@ De IDEs die opgenomen zullen worden in het onderzoek zijn de 4 meest populaire I
 
 Bij de technische experimenten verwacht de auteur dat Visual Studio Code het beste zal scoren op opstart en compileer -tijden maar dat het resource verbruik bij normaal gebruik en op de achtergrond het grootste zal zijn. De andere IDEs zullen meer tijd in beslag nemen om op te starten maar de compileer tijden zullen gelijkaardig zijn.
 
-Ook word er verwacht dat de keuze van project een minimaal impact zal maken op de geteste performantie karakteristieken. Er word enkel verwacht dat de zoektijd zal veranderen afhankelijk van de grootte van het project, aangezien het programma meer bestanden moet doorzoeken.
+Ook wordt er verwacht dat de keuze van project een minimale impact zal hebben op de geteste performantie karakteristieken. Er wordt enkel verwacht dat de zoektijd zal veranderen afhankelijk van de grootte van het project, aangezien het programma meer bestanden moet doorzoeken.
 
 %---------- Verwachte conclusies ----------------------------------------------
 \section{Verwachte conclusies}
